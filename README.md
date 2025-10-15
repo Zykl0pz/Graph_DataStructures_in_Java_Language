@@ -101,7 +101,7 @@ System.out.println("Resultado PreOrden: " + preOrderResult);
 - **Navegación básica**: Movimiento entre nodos padres e hijos
 - **Verificación de estado**: Identificación de raíces, hojas y nodos internos
 - **Gestión de hijos**: Adición y eliminación de nodos hijos
-- **Iteración básica**: Navegación secuencial through hijos
+- **Iteración básica**: Navegación secuencial sobre los hijos
 
 ### ⚠️ Implementación Parcial
 
