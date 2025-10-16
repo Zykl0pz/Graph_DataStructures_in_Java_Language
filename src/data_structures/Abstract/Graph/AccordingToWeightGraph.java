@@ -1,4 +1,4 @@
-package data_structures.Abstract.AbstractGraph;
+package data_structures.Abstract.Graph;
 
 public abstract class AccordingToWeightGraph extends AbstractGraph{
 }

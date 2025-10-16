@@ -1,9 +1,11 @@
 package data_structures.Extended;
+import data_structures.Abstract.Node.AbstractNode;
+
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.ListIterator;
 
-public class ExtendedNode<E>{
+public class ExtendedNode<E> extends AbstractNode<E> {
 
     // Node body
     private ExtendedNode<E> parentNode;

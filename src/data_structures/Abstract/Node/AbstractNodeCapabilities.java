@@ -1,4 +1,4 @@
-package data_structures.Abstract.AbstractNode;
+package data_structures.Abstract.Node;
 
 public interface AbstractNodeCapabilities {
 }
