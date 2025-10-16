@@ -1,10 +1,12 @@
 import data_structures.Extended.ExtendedNode;
 import data_structures.Extended.ExtendedTree;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 
 public class Main {
     public static void main(String[] args) {
+
         System.out.println("=== TESTING ORIGINAL IMPLEMENTATION ===");
 
         // Crear árbol y nodos
