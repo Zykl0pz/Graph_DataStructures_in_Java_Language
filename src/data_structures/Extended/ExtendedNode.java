@@ -7,33 +7,33 @@ import java.util.ListIterator;
 
 public class ExtendedNode<E> extends AbstractNode<E> {
 
-    // Node body
-    private ExtendedNode<E> parentNode;
-    private E actualNodeValue;
-    private LinkedList<ExtendedNode<E>> childNodes;
-
     // Node memory
     private Integer lastNumericIteratorChildNode;
     private ListIterator<ExtendedNode<E>> lastNativeIteratorChildNode;
     private ExtendedNode<E> lastVisitedChild;
 
-    // Methods
-    public boolean isRoot(){ return parentNode == null; }
-    public boolean isNode(){ return !(isRoot() && isLeaf()); }
-    public boolean isLeaf(){ return childNodes == null || childNodes.isEmpty(); }
+    // Extended Methods
 
-    public void addChildNode(ExtendedNode<E> en){
-        childNodes.addLast(en);
+    @Override
+    public void addChildNode(AbstractNode<E> childNode){
+        childNodes.addLast((ExtendedNode<E>) childNode);
         refreshNativeIterator();
     }
-    public void removeChildNode(E en){
-        childNodes.remove(en);
+    
+    @Override
+    public void removeChildNode(AbstractNode<E> childNode){
+        childNodes.remove(childNode);
         refreshNativeIterator();
     }
+    
+    @Override
     public void removeChildNodes(){
         this.childNodes.clear();
         refreshNativeIterator();
     }
+
+
+    public boolean isNode(){ return !(isRoot() && isLeaf()); }
 
     public ExtendedNode<E> getFirstChildNode(){ return childNodes.getFirst(); }
     public ExtendedNode<E> getLastChildNode(){ return childNodes.getLast(); }
@@ -69,22 +69,13 @@ public class ExtendedNode<E> extends AbstractNode<E> {
     public Integer getActualNodeIndex(){ return parentNode.getLastNumericIteratorChildNode(); }
     public Integer getChildNodeIndex(){ return lastNumericIteratorChildNode; }
 
-    public ExtendedNode<E> getParentNode() { return parentNode; }
-    public void setParentNode(ExtendedNode<E> parentNode) { this.parentNode = parentNode; }
     public void removeParentNode(){ this.parentNode = null;}
-
-    public E getActualNodeValue() { return actualNodeValue; }
-    public void setActualNodeValue(E actualNodeValue) { this.actualNodeValue = actualNodeValue; }
-
-    public LinkedList<ExtendedNode<E>> getChildNodes() { return childNodes; }
-    public void setChildNodes(LinkedList<ExtendedNode<E>> childNodes) { this.childNodes = childNodes; }
 
     public Integer getChildNodesQuantity() { return childNodes.size(); }
 
     public ExtendedNode() {
         this.parentNode = null;
         this.actualNodeValue = null;
-
         this.childNodes = new LinkedList<>();
         this.lastNumericIteratorChildNode = 0;
         this.lastNativeIteratorChildNode = childNodes.listIterator();
