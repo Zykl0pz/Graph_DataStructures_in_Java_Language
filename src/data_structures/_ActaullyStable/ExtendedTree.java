@@ -1,4 +1,4 @@
-package data_structures.Extended;
+package data_structures._ActaullyStable;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

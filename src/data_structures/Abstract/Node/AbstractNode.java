@@ -1,7 +1,7 @@
 package data_structures.Abstract.Node;
 
 import data_structures.DataStructure;
-import data_structures.Extended.ExtendedNode;
+import data_structures.Tested.ExtendedNode;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.List;
 public abstract class AbstractNode<E> extends DataStructure implements AbstractNodeCapabilities {
 
     // Node body
-    protected ExtendedNode<E> parentNode;
+    protected AbstractNode<E> parentNode;
     protected E actualNodeValue;
     protected List<AbstractNode<E>> childNodes;
 
@@ -40,11 +40,8 @@ public abstract class AbstractNode<E> extends DataStructure implements AbstractN
         }
     }
 
-    /**
-     * // Pending for implementation
-     public ExtendedNode<E> getFirstChildNode(){ return childNodes.getFirst(); }
-     public ExtendedNode<E> getLastChildNode(){ return childNodes.getLast(); }
-     */
+     public AbstractNode<E> getFirstChildNode(){ return childNodes.getFirst(); }
+     public AbstractNode<E> getLastChildNode(){ return childNodes.getLast(); }
 
     public AbstractNode() {
         this.parentNode = null;
@@ -52,24 +49,13 @@ public abstract class AbstractNode<E> extends DataStructure implements AbstractN
         this.childNodes = new LinkedList<>();
     }
 
-    public ExtendedNode<E> getParentNode() {
-        return parentNode;
-    }
-    public void setParentNode(ExtendedNode<E> parentNode) {
-        this.parentNode = parentNode;
-    }
+    public ExtendedNode<E> getParentNode() { return (ExtendedNode<E>) parentNode; }
+    public void setParentNode(AbstractNode<E> parentNode) { this.parentNode = parentNode; }
 
-    public E getActualNodeValue() {
-        return actualNodeValue;
-    }
-    public void setActualNodeValue(E actualNodeValue) {
-        this.actualNodeValue = actualNodeValue;
-    }
+    public E getActualNodeValue() { return actualNodeValue; }
+    public void setActualNodeValue(E actualNodeValue) { this.actualNodeValue = actualNodeValue; }
 
-    public LinkedList<AbstractNode<E>> getChildNodes() {
-        return childNodes;
-    }
-    public void setChildNodes(List<AbstractNode<E>> childNodes) {
-        this.childNodes = childNodes;
-    }
+    public List<AbstractNode<E>> getChildNodes() { return childNodes; }
+    public void setChildNodes(List<AbstractNode<E>> childNodes) { this.childNodes = childNodes; }
+
 }
